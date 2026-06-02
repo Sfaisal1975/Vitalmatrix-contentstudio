@@ -1,0 +1,16 @@
+{
+  "name": "vitalmatrix-content-studio-web",
+  "version": "1.0.0",
+  "description": "VitalMatrix Content Studio — Web/Replit package (citations, PDFs, SEO, compliance)",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "npx ts-node src/index.ts"
+  },
+  "author": "VitalMatrix Ltd",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

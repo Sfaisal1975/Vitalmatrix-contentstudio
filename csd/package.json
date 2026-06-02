@@ -1,0 +1,16 @@
+{
+  "name": "vitalmatrix-content-studio-dev",
+  "version": "1.0.0",
+  "description": "VitalMatrix Content Studio — Dev package (W05 build tooling, never deployed)",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "npx ts-node src/index.ts"
+  },
+  "author": "VitalMatrix Ltd",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
