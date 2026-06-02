@@ -510,3 +510,35 @@ export function suggestImprovements(dropOffs: DropOffPoint[]): string[] {
 
   return suggestions;
 }
+
+/**
+ * Returns all funnel events. Intended for reporting and export.
+ */
+export function getAllEvents(): FunnelEvent[] {
+  return [...events];
+}
+
+/**
+ * Clears all funnel events. Intended for testing only.
+ */
+export function clearEventStore(): void {
+  events.length = 0;
+}
+
+/**
+ * Exports all funnel events as a JSON string.
+ */
+export function exportToJson(): string {
+  return JSON.stringify(getAllEvents(), null, 2);
+}
+
+/**
+ * Imports funnel events from a JSON string, replacing the current store.
+ */
+export function importFromJson(json: string): void {
+  const items: FunnelEvent[] = JSON.parse(json);
+  clearEventStore();
+  for (const item of items) {
+    events.push(item);
+  }
+}

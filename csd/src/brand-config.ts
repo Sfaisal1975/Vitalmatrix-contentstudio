@@ -53,8 +53,9 @@ export const VM_BRAND = {
     'Contested',
   ] as const,
 
-  // TM footer — 30 branded mnemonics
-  tmFooter: 'VitalMatrix\u2122, NCZ\u2122, DRD\u2122, APEX\u2122, TIQ\u2122, CIB\u2122, CascadeIQ\u2122, FLINT\u2122, CZR\u2122, TRACE\u2122, DeltaScan\u2122, MedTerrain\u2122, TerrainLock\u2122, CascadeAtlas\u2122, PRISM\u2122, KINETICS\u2122, COHERENCE\u2122, TerrainRoot\u2122, ORBIT\u2122, SPHERE\u2122, HERALD\u2122, BEACON\u2122, MAPS\u2122, RECON\u2122, COMPASS\u2122, GENOME\u2122, ANCHOR\u2122, AXIS\u2122, INTAKE\u2122, VECTOR\u2122 and all associated marks are trademarks of VitalMatrix Ltd. All rights reserved. ICO ZC101813.',
+  // TM footer — practitioner-facing 38 mnemonics (D-149/D-159/D-232)
+  // Excluded: COMPASS (D-93), VAULT (D-138), TerrainRoot (ALB), VOLTERRAIN (Tier 3), TIE included (D-214 Tier 1)
+  tmFooter: 'VOS\u2122, VitalMatrix\u2122, NCZ\u2122, DRD\u2122, APEX\u2122, TIQ\u2122, CIB\u2122, CascadeIQ\u2122, FLINT\u2122, CZR\u2122, TRACE\u2122, DeltaScan\u2122, MedTerrain\u2122, TerrainLock\u2122, CascadeAtlas\u2122, PRISM\u2122, KINETICS\u2122, COHERENCE\u2122, ORBIT\u2122, SPHERE\u2122, HERALD\u2122, BEACON\u2122, MAPS\u2122, RECON\u2122, GENOME\u2122, ANCHOR\u2122, AXIS\u2122, INTAKE\u2122, VECTOR\u2122, VERITY\u2122, VANTAGE\u2122, VISTA\u2122, CADENCE\u2122, TerrainSpiral\u2122, MODES\u2122, GRADE\u2122, NEXUS\u2122, TIE\u2122, STRIDE\u2122 and all associated marks are trademarks of VitalMatrix Ltd. All rights reserved. ICO ZC101813.',
 
   // Regulatory footer — on all clinical outputs
   regulatoryFooter: 'For practitioner use only. Not a diagnostic tool. VitalMatrix Ltd 2026.',

@@ -69,6 +69,20 @@ export interface CitationSummary {
   tierBreakdown: Record<EvidenceTier, number>;
 }
 
+// --- Rate Limiting (NCBI eUtils: 3 req/sec without API key) ---
+const RATE_LIMIT_MS = 334; // ~3 requests per second
+let lastRequestTime = 0;
+
+async function rateLimitedFetch(url: string): Promise<Response> {
+  const now = Date.now();
+  const elapsed = now - lastRequestTime;
+  if (elapsed < RATE_LIMIT_MS) {
+    await new Promise(resolve => setTimeout(resolve, RATE_LIMIT_MS - elapsed));
+  }
+  lastRequestTime = Date.now();
+  return fetch(url);
+}
+
 // --- PubMed API ---
 
 const PUBMED_SEARCH_URL = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi';
@@ -76,7 +90,7 @@ const PUBMED_FETCH_URL = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.f
 
 export async function searchPubMed(query: string, maxResults: number = 10): Promise<string[]> {
   const url = `${PUBMED_SEARCH_URL}?db=pubmed&term=${encodeURIComponent(query)}&retmax=${maxResults}&retmode=json`;
-  const response = await fetch(url);
+  const response = await rateLimitedFetch(url);
   const data = await response.json();
   return data.esearchresult?.idlist ?? [];
 }
@@ -84,7 +98,7 @@ export async function searchPubMed(query: string, maxResults: number = 10): Prom
 export async function fetchPubMedDetails(pmids: string[]): Promise<PubMedSearchResult[]> {
   if (pmids.length === 0) return [];
   const url = `${PUBMED_FETCH_URL}?db=pubmed&id=${pmids.join(',')}&retmode=xml`;
-  const response = await fetch(url);
+  const response = await rateLimitedFetch(url);
   const xml = await response.text();
   return parsePubMedXml(xml);
 }

@@ -365,3 +365,21 @@ export function clearMilestoneStore(): void {
 export function getAllMilestones(): PractitionerMilestone[] {
   return [...milestoneStore];
 }
+
+/**
+ * Exports all milestones as a JSON string.
+ */
+export function exportToJson(): string {
+  return JSON.stringify(getAllMilestones(), null, 2);
+}
+
+/**
+ * Imports milestones from a JSON string, replacing the current store.
+ */
+export function importFromJson(json: string): void {
+  const items: PractitionerMilestone[] = JSON.parse(json);
+  clearMilestoneStore();
+  for (const item of items) {
+    milestoneStore.push(item);
+  }
+}

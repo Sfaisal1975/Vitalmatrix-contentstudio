@@ -365,3 +365,36 @@ export function generateUgcReport(): string {
     `---\n${VM_BRAND.regulatoryFooter}\n${VM_BRAND.tmFooter}`
   );
 }
+
+/**
+ * Returns all UGC items. Intended for reporting and export.
+ */
+export function getAllUgcItems(): UgcItem[] {
+  return Array.from(ugcStore.values());
+}
+
+/**
+ * Clears all UGC items. Intended for testing only.
+ */
+export function clearUgcStore(): void {
+  ugcStore.clear();
+  nextId = 1;
+}
+
+/**
+ * Exports all UGC items as a JSON string.
+ */
+export function exportToJson(): string {
+  return JSON.stringify(getAllUgcItems(), null, 2);
+}
+
+/**
+ * Imports UGC items from a JSON string, replacing the current store.
+ */
+export function importFromJson(json: string): void {
+  const items: UgcItem[] = JSON.parse(json);
+  clearUgcStore();
+  for (const item of items) {
+    ugcStore.set(item.id, item);
+  }
+}

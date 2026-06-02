@@ -9,7 +9,7 @@ Content production toolkit for VitalMatrix practitioner recruitment and engageme
 Deployed on Replit. Feeds W02 (Website Content Production) and W09 (Brand and Design).
 
 ### Target Outcome
-10 founding practitioners paying and active. GBP 299/month (IFM) or GBP 399/month (non-IFM).
+10 founding practitioners paying and active. GBP 99/month (all practitioners, no IFM discount), fixed 24 months.
 
 ---
 

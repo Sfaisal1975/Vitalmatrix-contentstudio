@@ -1060,3 +1060,28 @@ export function generateQuizReport(quizId: string): QuizReport {
 export function clearSubmissions(): void {
   submissionStore.length = 0;
 }
+
+/**
+ * Returns all quiz submissions. Intended for reporting and export.
+ */
+export function getAllSubmissions(): QuizSubmission[] {
+  return [...submissionStore];
+}
+
+/**
+ * Exports all submissions as a JSON string.
+ */
+export function exportToJson(): string {
+  return JSON.stringify(getAllSubmissions(), null, 2);
+}
+
+/**
+ * Imports submissions from a JSON string, replacing the current store.
+ */
+export function importFromJson(json: string): void {
+  const items: QuizSubmission[] = JSON.parse(json);
+  clearSubmissions();
+  for (const item of items) {
+    submissionStore.push(item);
+  }
+}

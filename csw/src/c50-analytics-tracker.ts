@@ -498,3 +498,37 @@ export function identifyUnderperformers(threshold: number): {
     campaigns: underperformingCampaigns.sort((a, b) => a.ctr - b.ctr),
   };
 }
+
+/**
+ * Returns all tracked events. Intended for reporting and export.
+ */
+export function getAllEvents(): AnalyticsEvent[] {
+  return [...events];
+}
+
+/**
+ * Clears all analytics stores. Intended for testing only.
+ */
+export function clearEventStore(): void {
+  events.length = 0;
+  contentStore.clear();
+  campaignStore.clear();
+}
+
+/**
+ * Exports all events as a JSON string.
+ */
+export function exportToJson(): string {
+  return JSON.stringify(getAllEvents(), null, 2);
+}
+
+/**
+ * Imports events from a JSON string, replacing the current stores.
+ */
+export function importFromJson(json: string): void {
+  const items: AnalyticsEvent[] = JSON.parse(json);
+  clearEventStore();
+  for (const item of items) {
+    trackEvent(item);
+  }
+}

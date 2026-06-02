@@ -56,7 +56,7 @@ export function generateJsonLd(config: JsonLdPageConfig): string {
       '@type': 'Organization',
       name: VM_BRAND.credentials.company,
       url: `https://${VM_BRAND.platform.domain}`,
-      description: `Clinical intelligence platform for functional medicine practitioners`,
+      description: `Terrain intelligence platform for functional medicine practitioners`,
     },
     audience: {
       '@type': 'MedicalAudience',

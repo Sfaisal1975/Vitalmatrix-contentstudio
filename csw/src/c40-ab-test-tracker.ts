@@ -446,3 +446,21 @@ export function clearTestStore(): void {
 export function getAllTests(): AbTest[] {
   return [...testStore];
 }
+
+/**
+ * Exports all tests as a JSON string.
+ */
+export function exportToJson(): string {
+  return JSON.stringify(getAllTests(), null, 2);
+}
+
+/**
+ * Imports tests from a JSON string, replacing the current store.
+ */
+export function importFromJson(json: string): void {
+  const items: AbTest[] = JSON.parse(json);
+  clearTestStore();
+  for (const item of items) {
+    testStore.push(item);
+  }
+}

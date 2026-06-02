@@ -1,5 +1,5 @@
 # VitalMatrix Content Studio Dev — Master Specifications
-## Version 3.0 | 2 June 2026
+## Version 4.0 | 2 June 2026
 
 > RETROSPECTIVE SPECIFICATION: Components built under rapid prototyping (1-2 June 2026).
 > Spec documentation follows component implementation. W06 TYPE 3 specs pending.
@@ -13,7 +13,7 @@ Reduce session overhead, prevent architectural violations, automate repetitive t
 
 ---
 
-## Component Register (30 Components)
+## Component Register (43 Components)
 
 ### Tier 1: Critical (built 1 June 2026)
 
@@ -108,7 +108,32 @@ Reduce session overhead, prevent architectural violations, automate repetitive t
 
 ## Stats
 
-- **Components:** 30
+### Tier 6: Gap Fillers + Workflow (built 2 June 2026)
+
+| # | Component | Purpose | Status |
+|---|-----------|---------|--------|
+| C36d | Git Hook Installer | Generates + installs pre-commit hook wiring C15 Quality Gate | BUILT |
+| C37d | Unified Test Runner | Runs all test suites (C7+C10+Engine) in one command | BUILT |
+| C38d | Brand Config Drift Detector | Checks all brand-config copies match, flags drift | BUILT |
+| C39d | Notion Decision Importer | D-series from Notion → TypeScript registry code | BUILT |
+| C40d | Session Timer | Per-task time tracking, Qwen routing recommendations | BUILT |
+| C41d | Code Snippet Library | 20 pre-built VM patterns with variable placeholders | BUILT |
+| C42d | Build Session Planner | Scope estimation, dependencies, risks, commit points | BUILT |
+| C43d | Memory File Manager | Scan, validate, staleness check, pruning suggestions | BUILT |
+
+### Tier 7: Environment & Validation (built 2 June 2026)
+
+| # | Component | Purpose | Status |
+|---|-----------|---------|--------|
+| C44d | Prompt Template Engine | 15 pre-built Claude Code prompts with context loading | BUILT |
+| C45d | Type-Safe Config Validator | 5 schemas, runtime validation, D-233b pipeline check | BUILT |
+| C46d | Feature Dependency Tracker | 37 Phase 1 features mapped to engine/connection/gate deps | BUILT |
+| C47d | Git History Analyser | Hot files, velocity, patterns, improvement suggestions | BUILT |
+| C48d | Environment Health Checker | 12 checks, fix scripts, one-line status | BUILT |
+
+---
+
+- **Components:** 43
 - **Shortcut:** `ccsd`
 
 ---

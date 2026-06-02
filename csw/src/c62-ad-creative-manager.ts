@@ -519,3 +519,44 @@ export function archiveUnderperformers(threshold: number): string[] {
 
   return archived;
 }
+
+/**
+ * Returns all creatives and tests. Intended for reporting and export.
+ */
+export function getAllCreativesAndTests(): { creatives: AdCreative[]; tests: CreativeTest[] } {
+  return {
+    creatives: Array.from(creatives.values()),
+    tests: Array.from(tests.values()),
+  };
+}
+
+/**
+ * Clears all creative and test stores. Intended for testing only.
+ */
+export function clearCreativeStore(): void {
+  creatives.clear();
+  tests.clear();
+  creativeCounter = 0;
+  testCounter = 0;
+}
+
+/**
+ * Exports all creatives and tests as a JSON string.
+ */
+export function exportToJson(): string {
+  return JSON.stringify(getAllCreativesAndTests(), null, 2);
+}
+
+/**
+ * Imports creatives and tests from a JSON string, replacing the current stores.
+ */
+export function importFromJson(json: string): void {
+  const data: { creatives: AdCreative[]; tests: CreativeTest[] } = JSON.parse(json);
+  clearCreativeStore();
+  for (const creative of data.creatives) {
+    creatives.set(creative.id, creative);
+  }
+  for (const test of data.tests) {
+    tests.set(test.id, test);
+  }
+}

@@ -573,3 +573,35 @@ export function generateGiftingStrategy(influencer: Influencer): GiftingStrategy
 
 /** Regulatory footer for all outreach materials. */
 export const OUTREACH_FOOTER = `${VM_BRAND.regulatoryFooter}\n${VM_BRAND.tmFooter}`;
+
+/**
+ * Returns all registered influencers. Intended for reporting and export.
+ */
+export function getAllInfluencers(): Influencer[] {
+  return Array.from(influencerRegistry.values());
+}
+
+/**
+ * Clears all influencers. Intended for testing only.
+ */
+export function clearInfluencerStore(): void {
+  influencerRegistry.clear();
+}
+
+/**
+ * Exports all influencers as a JSON string.
+ */
+export function exportToJson(): string {
+  return JSON.stringify(getAllInfluencers(), null, 2);
+}
+
+/**
+ * Imports influencers from a JSON string, replacing the current store.
+ */
+export function importFromJson(json: string): void {
+  const items: Influencer[] = JSON.parse(json);
+  clearInfluencerStore();
+  for (const item of items) {
+    influencerRegistry.set(item.id, { ...item });
+  }
+}
