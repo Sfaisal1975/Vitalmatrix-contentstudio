@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/content-studio/"
+title = "VitalMatrix Content Studio"
+version = "1.0.0"
+id = "artifacts/content-studio"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/content-studio/" ]
+localPort = 19046
+
+[services.development]
+run = "pnpm --filter @workspace/content-studio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/content-studio", "run", "build" ]
+publicDir = "artifacts/content-studio/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19046"
+BASE_PATH = "/content-studio/"
