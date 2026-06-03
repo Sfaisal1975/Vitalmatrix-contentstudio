@@ -12,7 +12,7 @@
 - Admin ContentStudioTab upgraded with 4 new sub-tabs: Brand Guide, Launch Sequence, Evidence Register, File Browser
 - New API routes: `GET /admin/cs-files/sections`, `/sections/:id/files`, `/file`, `/master-spec`, `/search`; `PUT /admin/cs-files/file`
 - API OpenAPI spec updated; generated React Query hooks: `useListCsSections`, `useListCsSectionFiles`, `useGetCsFile`, `useSaveCsFile`, `useGetCsMasterSpec`, `useSearchCsFiles`
-- GitHub sync tooling added: `scripts/github-setup.sh`, `scripts/github-sync.sh`
+- GitHub sync complete: 97 files pushed to `Sfaisal1975/Vitalmatrix-contentstudio` under `content-studio/` prefix (2026-06-03)
 
 ---
 
@@ -142,6 +142,6 @@ All clinical or health efficacy claims in any content must be:
 |---------|------|-------------|
 | v2.0 | 2026-05-20 | Initial master spec |
 | v2.1 | 2026-05-31 | API routes designed; sections populated |
-| v2.2 | 2026-06-02 | Standalone app + admin tab upgrades deployed; GitHub sync tooling added |
+| v2.2 | 2026-06-03 | Standalone app + admin tab upgrades deployed; 97 files synced to GitHub (`Sfaisal1975/Vitalmatrix-contentstudio`) |
 
 **v3 designation is RESERVED for the INTAKE form — never use v3 for content studio spec.**
